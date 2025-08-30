@@ -2,11 +2,10 @@ import './Article.css';
 import male from '../img/male.png';
 import female from '../img/female.png';
 
-function Article()
-{
+function Article(props){
+    //let {title, content} = props; //деструктуризация
     let {db} = props;
     return(
-        
             <article>
                 <div className='app'>
                 {
@@ -14,18 +13,14 @@ function Article()
                         return(
                             <div className = 'card' key={elem}>
                                 <img src={db[elem].photo} alt="Photo" />
-                        <div className='name'>
-                            {db[elem].name} {db[elem].surname}
-                        </div>
-                        <div className='gender'>
-                            <img src={db[elem].pol === 'male' ? male : female} alt="Gender"/>
-                        </div>
-                        <div className='age'>{db[elem].age}</div>
+                                <div className='name'>      {db[elem].name} {db[elem].surname} </div>
+                                <div className='gender'>    <img src={db[elem].pol === 'male' ? male : female} alt="Gender"/> </div>
+                                <div className='age'>{db[elem].age}</div>
                             </div>
                         )
                     })
                 }
-                    <div className= 'card'>
+                    {/* <div className= 'card'>
                         <img src={db.photo} alt="Photo" />
                         <div className='name'>
                             {db.name} {db.surname}
@@ -34,10 +29,12 @@ function Article()
                             <img src={gender} alt="Gender"/>
                         </div>
                         <div className='age'>{db.age}</div>
-                    </div>
+                    </div> */}
                 </div>
             <div>
-            <h2>Современные десктопные процессоры архитектуры x86
+                {/* <h1 style={{color:"darkblue", fontSize:"48px"}}>{title}</h1>
+                {content} */}
+            {/* <h2>Современные десктопные процессоры архитектуры x86
             общие принципы работы (x86 CPU digest 2.0)</h2>
             <p>
             Этот материал представляет собой обновлённую, существенно переработанную и дополненную версию статьи 2006 года, которая называлась «Современные десктопные процессоры архитектуры x86: общие принципы работы (x86 CPU FAQ 1.0)». Правда, чтобы не вводить потенциальных читателей в заблуждение словом «FAQ», мы решили назвать новый материал более правильным, как нам кажется, термином — «дайджест». Действительно, ведь большая его часть — это не ответы на конкретные вопросы, а разъяснения и краткие выжимки из чего угодно — от технической документации до истории развития микропроцессорной отрасли. Для кого предназначен данный материал? Нам видятся две группы потенциальных читателей.
@@ -51,7 +48,7 @@ function Article()
             <p>
             Ну и традиционное предупреждение: если иное не указано явно, то слово «процессор» в данном материале обозначает «x86(-64) процессор, предназначенный для установки в десктопы или (намного реже) мобильные компьютеры». Серверные процессоры, специализированные процессоры с архитектурой x86, всевозможные embedded-варианты — всё это в рамках статьи не рассматривается.Оглавление
             </p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At rem, inventore consectetur praesentium suscipit dignissimos cum aliquam accusantium dolor, tenetur, tempore in sit culpa id alias earum eos dolore neque!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At rem, inventore consectetur praesentium suscipit dignissimos cum aliquam accusantium dolor, tenetur, tempore in sit culpa id alias earum eos dolore neque!</p> */}
             
             </div>
          </article>
@@ -59,4 +56,9 @@ function Article()
     )
 }
 
+Article.defaultProps = 
+{
+    title:      `Заголовок статьи`,
+    content:    `Содержимое статьи`
+}
 export default Article;
